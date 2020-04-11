@@ -1,0 +1,32 @@
+version: "3.4"
+
+services:
+  src:
+    image: tenogy/dns:1.0.2
+    volumes:
+      - web-content:/app
+    networks:
+      - frontend
+
+  web:
+    restart: unless-stopped
+    image: mcr.microsoft.com/dotnet/core/aspnet:3.1.3-alpine3.11
+    container_name: web
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    volumes:
+      - web-content:/app
+    networks:
+      - frontend
+    ports:
+      - "8080:80"
+    working_dir: /app
+    command: dotnet Tenogy.Dns.Api.dll
+    depends_on:
+      - "src"
+volumes:
+  web-content:
+networks:
+  frontend:
+    external:
+      name: frontend

@@ -3,7 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenogy.Dns.Api", "Tenogy.Dns.Api\Tenogy.Dns.Api.csproj", "{FA3D6410-7839-4624-A850-534D68EB673E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tenogy.Dns.Api", "Tenogy.Dns.Api\Tenogy.Dns.Api.csproj", "{FA3D6410-7839-4624-A850-534D68EB673E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@common", "@common", "{83EC3340-C792-4E03-B09C-BB1CC16E9777}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@devops", "@devops", "{7442D6FA-5428-4A84-9E1C-414ABA3BE46F}"
+	ProjectSection(SolutionItems) = preProject
+		..\devops\.dockerignore = ..\devops\.dockerignore
+		..\devops\docker-compose.yml = ..\devops\docker-compose.yml
+		..\devops\Dockerfile = ..\devops\Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
