@@ -8,7 +8,7 @@ function build {
     echo "increment build number"
     awk -F ': ' '/buildNumber/{$2=$2+1""}1' OFS=': ' $stateFile > _current.tmp && mv -f _current.tmp $stateFile
 
-    readState();
+    readState
 
     echo "build the app ${appVersion}";
     cd $projectDir;

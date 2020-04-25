@@ -3,7 +3,7 @@ source $projectDir/devops/scripts/vars.sh;
 
 function deploy {
     echo deploy start
-    readState();
+    readState
     echo "deploy the app ${appVersion}";
 
 
