@@ -12,6 +12,7 @@ function build {
 
     echo "build the app ${appVersion}";
     cd $projectDir;
+    echo docker build --no-cache -t $config_imageName:$appVersion --build-arg VERSION=$config_build_sdk -f $projectDir/devops/Dockerfile .
     docker build --no-cache -t $config_imageName:$appVersion --build-arg VERSION=$config_build_sdk -f $projectDir/devops/Dockerfile .
   
     
