@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Tenogy.Dns.Api.Controllers
 {
@@ -6,13 +7,14 @@ namespace Tenogy.Dns.Api.Controllers
 	[Route("[controller]")]
 	public class HealthController : ControllerBase
 	{
-		
+	
 		[HttpGet]
 		public HealthState Get()
 		{
 			return new HealthState
 			{
-				Status = "healthy"
+				Status = "healthy",
+				Version = Environment.GetEnvironmentVariable("APP_VERSION")
 			};
 		}
 	}
@@ -20,5 +22,6 @@ namespace Tenogy.Dns.Api.Controllers
 	public class HealthState
 	{
 		public string Status { get; set; }
+		public string Version { get; set; }
 	}
 }
