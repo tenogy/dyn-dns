@@ -11,8 +11,7 @@ function deploy {
     echo "ssh command: ${sshC}";
 
     echo "remove previous container versions"
-    echo  ssh ${sshC} "(if [ \$(docker images -q ${config_imageName}) ]; then docker rmi \$(docker images ${config_imageName} -q) -f; else echo /"No images for remove/";fi;);";
-    ssh ${sshC} "(if [ \$(docker images -q ${config_imageName}) ]; then docker rmi \$(docker images ${config_imageName} -q) -f; else echo /"No images for remove/";fi;);";
+    ssh ${sshC} "docker rmi \$(docker images ${config_imageName} -q) -f";
 
     echo save new image on remote server
     docker save $config_imageName:$appVersion | ssh -C $sshC docker load;
